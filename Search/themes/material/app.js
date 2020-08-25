@@ -22,11 +22,12 @@ if (dark) {
 function init() {
   document.siteName = $("title").html();
   $("body").addClass(
-    "mdui-theme-primary-" + main_color + " mdui-theme-accent-" + accent_color
+    `mdui-theme-primary-${main_color} mdui-theme-accent-${accent_color}` +
+      (dark && ` mdui-theme-layout-dark`)
   );
   var html = "";
   html += `
-    <header class="mdui-appbar mdui-color-theme">`;
+    <header class="mdui-appbar mdui-color-${main_color}">`;
   if (dark) {
     html += `
         <div id="nav" class="mdui-toolbar mdui-container mdui-text-color-white-text">
@@ -160,7 +161,7 @@ function nav(path) {
                 <i class="mdui-icon material-icons">search</i>
             </button>
             <form id="search_bar_form" method="get" action="/${cur}:search">
-            <input class="mdui-textfield-input mdui-text-color-white-text" type="text" name="q" placeholder="Search in current drive" value="${search_text}"/>
+            <input class="mdui-textfield-input mdui-text-color-white-text" type="text" name="q" placeholder="Search in current drive" value="${search_text}" />
             </form>
             <button class="mdui-textfield-close mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">close</i></button>
         </div>`;
@@ -776,7 +777,7 @@ function file_code(path) {
 </div>
 <div class="mdui-textfield">
 	<label class="mdui-textfield-label">Download Link</label>
-	<input class="mdui-textfield-input" type="text" value="${href}"/>
+	<input class="mdui-textfield-input" type="text" readonly value="${href}"/>
 </div>
 <a href="${href}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">file_download</i></a>
 <script src="https://cdn.staticfile.org/ace/1.4.7/ace.js"></script>
@@ -848,7 +849,7 @@ function file_video(path) {
   player_items += `<li class="mdui-divider"></li>
                    <li class="mdui-menu-item"><a id="copy-link" class="mdui-ripple">Copy Link</a></li>`;
   const playBtn = `
-      <button class="mdui-btn mdui-ripple mdui-color-theme-accent" mdui-menu="{target:'#player-items'}">
+      <button class="mdui-btn mdui-ripple mdui-color-${accent_color}" mdui-menu="{target:'#player-items'}">
         <i class="mdui-icon material-icons">&#xe039;</i>Play From External Player<i class="mdui-icon material-icons">&#xe5cf;</i>
       </button>
 
@@ -865,14 +866,14 @@ function file_video(path) {
 	<!-- Fixed label -->
 	<div class="mdui-textfield">
 	  <label class="mdui-textfield-label">Download Link</label>
-	  <input class="mdui-textfield-input" type="text" value="${url}"/>
+	  <input class="mdui-textfield-input" type="text" readonly value="${url}"/>
 	</div>
 	<div class="mdui-textfield">
 	  <label class="mdui-textfield-label">HTML Refrence Adress</label>
-	  <textarea class="mdui-textfield-input"><video><source src="${url}" type="video/mp4"></video></textarea>
+	  <textarea class="mdui-textfield-input" readonly><video><source src="${url}" type="video/mp4"></video></textarea>
 	</div>
 </div>
-<a href="${url}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">file_download</i></a>
+<a href="${url}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-${accent_color}"><i class="mdui-icon material-icons">file_download</i></a>
 	`;
   $("#content").html(content);
   $("#copy-link").on("click", () => {
@@ -898,7 +899,7 @@ function file_audio(path) {
 	</div>
 	<div class="mdui-textfield">
 	  <label class="mdui-textfield-label">HTML Reference address</label>
-	  <textarea class="mdui-textfield-input"><audio><source src="${url}"></audio></textarea>
+	  <textarea class="mdui-textfield-input" readonly><audio><source src="${url}"></audio></textarea>
 	</div>
 </div>
 <a href="${url}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">file_download</i></a>
