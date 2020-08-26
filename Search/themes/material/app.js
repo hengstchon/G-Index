@@ -767,7 +767,7 @@ function file_code(path) {
 	<label class="mdui-textfield-label">Download Link</label>
 	<input class="mdui-textfield-input" type="text" readonly value="${href}"/>
 </div>
-<a href="${href}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-${accent_color}"><i class="mdui-icon material-icons">file_download</i></a>
+<a href="${href}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme"><i class="mdui-icon material-icons">file_download</i></a>
 <script src="https://cdn.staticfile.org/ace/1.4.7/ace.js"></script>
 <script src="https://cdn.staticfile.org/ace/1.4.7/ext-language_tools.js"></script>
 	`;
@@ -837,7 +837,7 @@ function file_video(path) {
   player_items += `<li class="mdui-divider"></li>
                    <li class="mdui-menu-item"><a id="copy-link" class="mdui-ripple">Copy Link</a></li>`;
   const playBtn = `
-      <button class="mdui-btn mdui-ripple mdui-color-${accent_color}" mdui-menu="{target:'#player-items'}">
+      <button class="mdui-btn mdui-ripple mdui-color-theme" mdui-menu="{target:'#player-items'}">
         <i class="mdui-icon material-icons">&#xe039;</i>Play From External Player<i class="mdui-icon material-icons">&#xe5cf;</i>
       </button>
 
@@ -861,7 +861,7 @@ function file_video(path) {
 	  <textarea class="mdui-textfield-input" readonly><video><source src="${url}" type="video/mp4"></video></textarea>
 	</div>
 </div>
-<a href="${url}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-${accent_color}"><i class="mdui-icon material-icons">file_download</i></a>
+<a href="${url}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme"><i class="mdui-icon material-icons">file_download</i></a>
 	`;
   $("#content").html(content);
   $("#copy-link").on("click", () => {
@@ -890,7 +890,7 @@ function file_audio(path) {
 	  <textarea class="mdui-textfield-input" readonly><audio><source src="${url}"></audio></textarea>
 	</div>
 </div>
-<a href="${url}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-${accent_color}"><i class="mdui-icon material-icons">file_download</i></a>
+<a href="${url}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme"><i class="mdui-icon material-icons">file_download</i></a>
 	`;
   $("#content").html(content);
 }
@@ -904,7 +904,7 @@ function file_pdf(path) {
   );
   var content = `
 	<object data="${inline_url}" type="application/pdf" name="${file_name}" style="width:100%;height:94vh;"><embed src="${inline_url}" type="application/pdf"/></object>
-    <a href="${url}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-${accent_color}"><i class="mdui-icon material-icons">file_download</i></a>
+    <a href="${url}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme"><i class="mdui-icon material-icons">file_download</i></a>
 	`;
   $("#content")
     .removeClass("mdui-container")
@@ -948,15 +948,15 @@ function file_image(path) {
                     <div class="mdui-col">
                         ${
                           prev_child
-                            ? `<button id="leftBtn" data-filepath="${prev_child}" class="mdui-btn mdui-btn-block mdui-color-${accent_color} mdui-ripple">Previous</button>`
-                            : `<button class="mdui-btn mdui-btn-block mdui-color-${accent_color} mdui-ripple" disabled>Previous</button>`
+                            ? `<button id="leftBtn" data-filepath="${prev_child}" class="mdui-btn mdui-btn-block mdui-color-theme mdui-ripple">Previous</button>`
+                            : `<button class="mdui-btn mdui-btn-block mdui-color-theme mdui-ripple" disabled>Previous</button>`
                         }
                     </div>
                     <div class="mdui-col">
                         ${
                           next_child
-                            ? `<button id="rightBtn"  data-filepath="${next_child}" class="mdui-btn mdui-btn-block mdui-color-${accent_color} mdui-ripple">Next</button>`
-                            : `<button class="mdui-btn mdui-btn-block mdui-color-${accent_color} mdui-ripple" disabled>Next</button>`
+                            ? `<button id="rightBtn"  data-filepath="${next_child}" class="mdui-btn mdui-btn-block mdui-color-theme mdui-ripple">Next</button>`
+                            : `<button class="mdui-btn mdui-btn-block mdui-color-theme mdui-ripple" disabled>Next</button>`
                         }
                     </div>
                 </div>
@@ -990,7 +990,7 @@ function file_image(path) {
 	</div>
         <br>
 </div>
-<a href="${url}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-${accent_color}"><i class="mdui-icon material-icons">file_download</i></a>
+<a href="${url}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme"><i class="mdui-icon material-icons">file_download</i></a>
     `;
   //my code
   $("#content").html(content);
