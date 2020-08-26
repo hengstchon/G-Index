@@ -17,7 +17,7 @@ function init() {
     `mdui-theme-primary-${main_color} mdui-theme-accent-${accent_color}` +
       (dark && ` mdui-theme-layout-dark`)
   );
-  const html = `<header class="mdui-appbar mdui-color-${main_color}">
+  const html = `<header class="mdui-appbar mdui-color-theme">
                   <div id="nav" class="mdui-toolbar mdui-container"></div>
                 </header>
                 <div id="content" class="mdui-container"></div>`;
@@ -652,7 +652,7 @@ function onSearchResultItemClick(a_ele) {
       var href = `/${cur}:${data}${can_preview ? "?a=view" : ""}`;
       dialog = mdui.dialog({
         title: '<i class="mdui-icon material-icons">☞ </i>Target path',
-        content: `<a href="${href}">${data}</a>`,
+        content: `<a class="mdui-text-color-theme-accent" href="${href}">${data}</a>`,
         history: false,
         modal: true,
         closeOnEsc: true,
